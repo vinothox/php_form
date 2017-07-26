@@ -30,44 +30,52 @@ and open the template in the editor.
         <div id="main">
             <div id="header">
                 <div id="title">
-                    <h1><i><b>REGISTRATION</b></i></h1></div></div>
+                    <h1><i><b>REGISTRATION</b></i></h1></div>
+            </div> 
             <div id="cont">
                 <div id="error"></div>
-                <form method="post" action="pic.php" enctype="multipart/form-data">
+                
+                <!--<form method="post" action="pic.php" enctype="multipart/form-data">
                     <label>Select image to upload:</label>
                     <input type="file" name="photo" id="photo">
-                    <input type="submit" value="upload" name="Upload" id="picbt">
-                </form>
-                <form method="post" action="server.php">
+                    <input type="submit" value="upload" id="picbt" name="submit">
+                </form>-->
+                
+                <form method="post" action="server.php" enctype="multipart/form-data">
+                    <label>Select image to upload:</label>
+                    <input type="file" name="photo" id="photo"><br>
                     <label>Username</label>
-                    <input type="text" id="username" name="username" placeholder="Username">
+                    <input type="text" id="username" name="username" placeholder="Username" required="">
                     <span class="hidden" id="unerr"></span><br>
                     <label>Password</label>
-                    <input type="password" id="pwd_1" name="pwd_1" placeholder="Password">
+                    <input type="password" id="pwd_1" name="pwd_1" placeholder="Password" required="">
                     <span class="hidden" id="pwd1err"></span><br>
                     <label>Retype Password</label>
-                    <input type="password" id="pwd_2" name="pwd_2" placeholder="Retype Password">
+                    <input type="password" id="pwd_2" name="pwd_2" placeholder="Retype Password" required="">
                     <span class="hidden" id="pwd2err"></span><br>         
                     <label>Email-ID</label>
-                    <input type="text" id="email" name="email" placeholder="Email_ID">
+                    <input type="text" id="email" name="email" placeholder="Email_ID" required="">
                     <span class="hidden" id="emailerr"></span><br>
                     <label>Date of Birth</label>
-                    <input type="date" id="dob" name="dob"><br>
+                    <input type="date" id="dob" name="dob" required=""><br>
                     <label>Gender</label>
                     <input type="radio" name="gender" value="male" checked> Male
                     <input type="radio" name="gender" value="female"> Female
                     <span class="hidden" id="generr"></span><br>
                     <label>Contact Number</label>
-                    <input type="text" id="mobNo" name="mobNo" placeholder="Contact no">
+                    <input type="text" id="mobNo" name="mobNo" placeholder="Contact no" required="">
                     <span class="hidden" id="moberr"></span><br>
                     <label>City</label>
-                    <input type="text" id="city" name="city" placeholder="City">
+                    <input type="text" id="city" name="city" placeholder="City" required="">
                     <div id="sub">
-                        <input type="submit" value="Register" name="register"><?php echo $error; ?><br>
+                        <input type="submit" value="Register" name="submit" id="register"><span class="hidden" id="err"></span><br>
                         Already a Member? <a href="login.php">Sign In</a>
                     </div>
                 </form>
-            </div></div>
+                <a href="index.php"><input type="submit" id="home_bt" value="HOME"></a>
+            </div>
+        
+        </div>
         <footer id="foot">
             Copyright &copy; VINOTH &nbsp | ALL RIGHTS RESERVED
         </footer>

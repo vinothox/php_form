@@ -44,5 +44,13 @@ $(document).ready(function () {
             $('#moberr').addClass('hidden');
         }
     });
+    $('#register').click(function (){
+        if(($("#username").val()=="")) {
+            $("#username").focus();
+            $('#err').removeClass('hidden');
+            $('#err').html('All fields are mandatory');
+            window.location= "register.php";
+        }
+    });
 });
 
