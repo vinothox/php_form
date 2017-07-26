@@ -7,27 +7,27 @@ $(document).ready(function () {
     $("#username").keyup(function () {
         if (!($("#username").val().match('^[a-zA-Z]{3,16}$'))) {
             $('#unerr').removeClass('hidden');
-            $('#unerr').html('Invalid First Name');
+            $('#unerr').html('Name must contain only alphabets');
         } else {
             $('#unerr').addClass('hidden');
         }
     });
     $("#pwd_1").keyup(function () {
-        if (!($("#pwd_1").val().match('^{6}$'))) {
+        if (($("#pwd_1").val().length)<6) {
             $('#pwd1err').removeClass('hidden');
             $('#pwd1err').html('Password length must be atleast 6');
         } else {
             $('#pwd1err').addClass('hidden');
         }
     });
-    /*$("#pwd_2").keyup(function () {
-        if ($('#pwd_1') != $('#pwd_2')) {
+    $("#pwd_2").keyup(function () {
+        if ($('#pwd_1').val() != $('#pwd_2').val()) {
             $('#pwd2err').removeClass('hidden');
             $('#pwd2err').html('Passwords did not match');
         } else {
             $('#pwd2err').addClass('hidden');
         }
-    });*/
+    });
     $("#email").keyup(function () {
         if (!($("#email").val().match('^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'))) {
             $('#emailerr').removeClass('hidden');
