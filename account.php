@@ -5,12 +5,6 @@ if (!isset($_SESSION['username'])) {
     $_SESSION['msg'] = "You must log in first";
     header('location: login.php');
 }
-
-if (isset($_GET['logout'])) {
-    session_destroy();
-    unset($_SESSION['username']);
-    header("location: login.php");
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,7 +20,9 @@ if (isset($_GET['logout'])) {
             <?php if (isset($_SESSION['username'])) : ?>
                 <center>
                     <p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-                    <p> <a href="login.php?logout='1'" style="color: red;"><input type="submit" id="home_bt" value="Log Out"></a> </p>
+                    <form action="logout.php" method="get">
+                    <p><input type="submit" id="home_bt" value="Log Out"></p>
+                    </form>
                 </center>
             <?php endif ?>
         </div>

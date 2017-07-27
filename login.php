@@ -1,8 +1,9 @@
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header('location: account.php');
+}
+?>
 <html>
     <head>
         <title>Register</title>
@@ -23,18 +24,17 @@ and open the template in the editor.
                     $pwd1 = md5($_POST['pwd']);
                     $query = "SELECT * FROM users WHERE username='$uname' AND password='$pwd1'";
                     $results = mysqli_query($db, $query);
-
                     if (mysqli_num_rows($results) == 1) {
                         session_start();
                         $_SESSION['username'] = $uname;
                         $_SESSION['success'] = "You are now logged in";
                         header('location: account.php');
                     } else {
-                        $error= "Wrong username/password combination";
+                        $error = "Wrong username/password combination";
                     }
                 }
                 ?>
-                <center><span id="errmsg"><?php echo $error;?></span></center>
+                <center><span id="errmsg"><?php echo $error; ?></span></center>
                 <form method="post" action="login.php">       
                     <label>Username</label>
                     <input type="text" id="username" name="username" placeholder="Username" required=""><br>

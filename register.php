@@ -3,7 +3,12 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
+<?php
+session_start();
+if (isset($_SESSION['username'])) {
+    header('location: account.php');
+}
+?>
 <html>
     <head>
         <title>Register</title>
@@ -34,13 +39,13 @@ and open the template in the editor.
             </div> 
             <div id="cont">
                 <div id="error"></div>
-                
+
                 <!--<form method="post" action="pic.php" enctype="multipart/form-data">
                     <label>Select image to upload:</label>
                     <input type="file" name="photo" id="photo">
                     <input type="submit" value="upload" id="picbt" name="submit">
                 </form>-->
-                
+
                 <form method="post" action="server.php" enctype="multipart/form-data">
                     <label>Select image to upload:</label>
                     <input type="file" name="photo" id="photo"><br>
@@ -74,7 +79,7 @@ and open the template in the editor.
                 </form>
                 <a href="index.php"><input type="submit" id="home_bt" value="HOME"></a>
             </div>
-        
+
         </div>
         <footer id="foot">
             Copyright &copy; VINOTH &nbsp | ALL RIGHTS RESERVED
